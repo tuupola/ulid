@@ -1,0 +1,38 @@
+{
+    "name": "tuupola/ulid",
+    "description": "Universally Unique Lexicographically Sortable Identifier",
+    "keywords": [
+        "ulid"
+    ],
+    "homepage": "https://github.com/tuupola/ulid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mika Tuupola",
+            "email": "tuupola@appelsiini.net",
+            "homepage": "http://www.appelsiini.net/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "^5.6 || ^7.0",
+        "tuupola/base32": "^0.1.0",
+        "paragonie/random_compat": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tuupola\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tuupola\\": "tests"
+        }
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.5",
+        "phpunit/phpunit": "^5.7",
+        "overtrue/phplint": "^0.2.1",
+        "nyholm/nsa": "^1.1"
+    }
+}
