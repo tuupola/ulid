@@ -43,16 +43,6 @@ class Ulid
         return new self;
     }
 
-    // public function generateRandom($length = 16, $characters = Base32::CROCKFORD)
-    // {
-    //     $string = "";
-    //     $size = strlen($characters) - 1;
-    //     for ($i = 0; $i < $length; ++$i) {
-    //         $string .= $characters[random_int(0, $size)];
-    //     }
-    //     return $string;
-    // }
-
     public function string()
     {
         return $this->encodeTimeStamp() . $this->encodePayload();
@@ -78,5 +68,23 @@ class Ulid
 
         $encoded = $base32->encode($this->timestamp);
         return \str_pad($encoded, self::TIMESTAMP_ENCODED_SIZE, "0", STR_PAD_LEFT);
+    }
+
+    public function payload()
+    {
+        return $this->payload;
+    }
+    public function timestamp()
+    {
+        return $this->timestamp;
+    }
+    public function unixtime()
+    {
+        return $this->timestamp;
+    }
+
+    public function __toString()
+    {
+        return $this->string();
     }
 }

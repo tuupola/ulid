@@ -22,19 +22,18 @@ use Tuupola\Ulid;
 
 $ulid = new Ulid;
 
-print $ulid; /* p6UEyCc8D8ecLijAI5zVwOTP3D0 */
+print $ulid; /* 0001DD70YKYBES1P98DHWKTWZW */
 
-$ulid = ulid::fromString("0o5Fs0EELR0fUjHjbCnEtdUwQe3");
+//$ulid = ulid::fromString("0o5Fs0EELR0fUjHjbCnEtdUwQe3");
 
-print $ulid->timestamp(); /* 94985761 */
-print $ulid->unixtime(); /* 1494985761 */
-print bin2hex($ulid->payload()); /* d7b6fe8cd7cff211704d8e7b9421210b */
+print $ulid->timestamp(); /* 1523811283 */
+print bin2hex($ulid->payload()); /* f2dd90d9286c793d73fc */
 
 $datetime = (new \DateTimeImmutable)
     ->setTimestamp($ulid->unixtime())
     ->setTimeZone(new \DateTimeZone("UTC"));
 
-print $datetime->format("Y-m-d H:i:s"); /* 2017-05-17 01:49:21 */
+print $datetime->format("Y-m-d H:i:s"); /* 2018-04-15 16:54:43 */
 ```
 
 ## Testing
