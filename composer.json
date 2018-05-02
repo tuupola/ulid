@@ -32,7 +32,7 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5",
         "phpunit/phpunit": "^5.7",
-        "overtrue/phplint": "^1.1",
-        "nyholm/nsa": "^1.1"
+        "nyholm/nsa": "^1.1",
+        "overtrue/phplint": "^1.1.2"
     }
 }
