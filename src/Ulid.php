@@ -25,16 +25,16 @@ class Ulid
     private $payload;
     private $timestamp;
 
-    public function __construct($timestamp = null, $payload = null)
+    public function __construct($timestamp_ms = null, $payload = null)
     {
         $this->payload = $payload;
-        $this->timestamp = $timestamp;
+        $this->timestamp = $timestamp_ms;
 
         if (empty($payload)) {
             $this->payload = random_bytes(self::PAYLOAD_SIZE);
         }
-        if (empty($timestamp)) {
-            $this->timestamp = time();
+        if (empty($timestamp_ms)) {
+            $this->timestamp = (int) (microtime(true) * 1000);
         }
     }
 
@@ -74,13 +74,15 @@ class Ulid
     {
         return $this->payload;
     }
+    
     public function timestamp()
     {
         return $this->timestamp;
     }
+    
     public function unixtime()
     {
-        return $this->timestamp;
+        return ($this->timestamp / 1000);
     }
 
     public function __toString()
