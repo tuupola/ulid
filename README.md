@@ -3,7 +3,7 @@
 This library implements the [Universally Unique Lexicographically Sortable Identifier](https://github.com/alizain/ulid) from Alizain Feerasta.
 
 [![Latest Version](https://img.shields.io/packagist/v/tuupola/ulid.svg?style=flat-square)](https://packagist.org/packages/tuupola/ulid)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/github/workflow/status/tuupola/ulid/Tests/master?style=flat-square)](https://github.com/tuupola/ulid/actions)
 [![Coverage](https://img.shields.io/codecov/c/github/tuupola/ulid.svg?style=flat-square)](https://codecov.io/github/tuupola/ulid)
 
@@ -59,4 +59,4 @@ If you discover any security related issues, please email tuupola@appelsiini.net
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
