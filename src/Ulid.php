@@ -22,33 +22,42 @@ class Ulid
     const TIMESTAMP_SIZE = 6;
     const TIMESTAMP_ENCODED_SIZE = 10;
 
+    /**
+     * @var string
+     */
     private $payload;
+
+    /**
+     * @var int
+     */
     private $timestamp;
 
-    public function __construct($timestamp_ms = null, $payload = null)
+    public function __construct(int $timestamp_ms = null, string $payload = null)
     {
-        $this->payload = $payload;
-        $this->timestamp = $timestamp_ms;
-
         if (empty($payload)) {
             $this->payload = random_bytes(self::PAYLOAD_SIZE);
+        } else {
+            $this->payload = $payload;
         }
+
         if (empty($timestamp_ms)) {
             $this->timestamp = (int) (microtime(true) * 1000);
+        } else {
+            $this->timestamp = $timestamp_ms;
         }
     }
 
-    public static function generate()
+    public static function generate(): self
     {
         return new self;
     }
 
-    public function string()
+    public function string(): string
     {
         return $this->encodeTimeStamp() . $this->encodePayload();
     }
 
-    private function encodePayload()
+    private function encodePayload(): string
     {
         $base32 = new Base32([
             "characters" => Base32::CROCKFORD,
@@ -59,7 +68,7 @@ class Ulid
         return \str_pad($encoded, self::PAYLOAD_ENCODED_SIZE, "0", STR_PAD_LEFT);
     }
 
-    private function encodeTimeStamp()
+    private function encodeTimeStamp(): string
     {
         $base32 = new Base32([
             "characters" => Base32::CROCKFORD,
@@ -70,17 +79,17 @@ class Ulid
         return \str_pad($encoded, self::TIMESTAMP_ENCODED_SIZE, "0", STR_PAD_LEFT);
     }
 
-    public function payload()
+    public function payload(): string
     {
         return $this->payload;
     }
 
-    public function timestamp()
+    public function timestamp(): int
     {
         return $this->timestamp;
     }
 
-    public function unixtime()
+    public function unixtime(): int
     {
         return ($this->timestamp / 1000);
     }
