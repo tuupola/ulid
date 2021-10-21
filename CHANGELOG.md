@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ## 0.2.0 - unreleased
 
+### Added
+- Allow installing with PHP 8 ([#4](https://github.com/tuupola/ulid/pull/4)).
+
 ### Changed
 - Timestamp is now milliseconds as per spec ([#2](https://github.com/tuupola/ulid/pull/2)).
 
