@@ -65,18 +65,18 @@ class UlidTest extends TestCase
         $ulid = new Ulid(1);
         $timestamp  = NSA::invokeMethod($ulid, "encodeTimeStamp");
         $this->assertEquals(Ulid::TIMESTAMP_ENCODED_SIZE, strlen($timestamp));
-        //$this->assertEquals(1, $base32->decode($timestamp, true));
+        $this->assertEquals(1, $base32->decodeInteger($timestamp));
 
         $ulid = new Ulid(1469918176385);
         $timestamp  = NSA::invokeMethod($ulid, "encodeTimeStamp");
         $this->assertEquals(Ulid::TIMESTAMP_ENCODED_SIZE, strlen($timestamp));
-        $this->assertEquals(1469918176385, $base32->decode($timestamp, true));
+        $this->assertEquals(1469918176385, $base32->decodeInteger($timestamp));
 
         /* Largest valid ULID encoded in Base32 is 7ZZZZZZZZZZZZZZZZZZZZZZZZZ, */
         /* which corresponds to an epoch time of 281474976710655 or 2 ^ 48 - 1 */
         $ulid = new Ulid((2 ** 48) - 1);
         $timestamp  = NSA::invokeMethod($ulid, "encodeTimeStamp");
         $this->assertEquals(Ulid::TIMESTAMP_ENCODED_SIZE, strlen($timestamp));
-        $this->assertEquals((2 ** 48) - 1, $base32->decode($timestamp, true));
+        $this->assertEquals((2 ** 48) - 1, $base32->decodeInteger($timestamp));
     }
 }

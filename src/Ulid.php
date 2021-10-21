@@ -66,7 +66,7 @@ class Ulid
             "padding" => false
         ]);
 
-        $encoded = $base32->encode($this->timestamp);
+        $encoded = $base32->encodeInteger($this->timestamp);
         return \str_pad($encoded, self::TIMESTAMP_ENCODED_SIZE, "0", STR_PAD_LEFT);
     }
 
@@ -74,12 +74,12 @@ class Ulid
     {
         return $this->payload;
     }
-    
+
     public function timestamp()
     {
         return $this->timestamp;
     }
-    
+
     public function unixtime()
     {
         return ($this->timestamp / 1000);
